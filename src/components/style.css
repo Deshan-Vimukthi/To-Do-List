@@ -1,0 +1,108 @@
+.to-do-item{
+    max-width: 100%;
+    background-color: var(--background_color);
+    box-shadow: 1px 1px 10px #222;
+    border: #222 solid 1px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+.to-do-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+    background-color: #222;
+    color: #aaa;
+
+}
+.text-area{
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 5px;
+}
+.to-do-header>input[type=text],.to-do-header>div{
+    flex: 1;
+}
+.to-do-header>input[type=checkbox]{
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: 100%;
+    aspect-ratio: 1/1;
+    color: #FFFFFF;
+}
+.to-do-header>button{
+    all: unset;
+    min-height: 30px;
+    height: 100%;
+    padding: 5px;
+    aspect-ratio: 1/1;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.to-do-header>button>i:hover{
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.dark-input-field{
+    background: #222;
+    color: #aaa;
+}
+.dark-input-field>.input-container{
+    border: #FFFFFF 1px solid;
+}
+.dark-input-field>.input-container div{
+    background: #222;
+    color: #aaa;
+}
+.dark-input-field>.input-container[aria-expanded="true"] div {
+    background: #aaa;
+    color: #222;
+}
+.dark-input-field>.input-container>.input-field-input{
+    background: #222;
+    color: #aaa;
+}
+
+.to-do-list-container{
+    width: min(100%);
+    height: 100vh;
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+.to-do-list-header{
+    max-width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+    display: flex;
+    height: 50px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    color: var(--background_color);
+}
+.to-do-list-header>div{
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #FFFFFF;
+}
+.to-do-list-header>button{
+    flex: 0 0;
+    height: 60%;
+    aspect-ratio: 1/1;
+}
+.to-do-list{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}

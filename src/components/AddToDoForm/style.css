@@ -1,0 +1,37 @@
+.add-task-dialog{
+    position:absolute;
+    z-index:1000;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    border-radius: 5px;
+
+    box-shadow: 1px 1px 10px #222222;
+}
+.form-head{
+    display: flex;
+    background-color:  #007bff;
+    padding: 5px;
+    align-items: center;
+}
+.form-head>div{
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding-left: 5px;
+    font-weight: bold;
+    color: white;
+}
+.form-head>button{
+    height: 30px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+}
+.button{
+    background-color:  #007bff;
+}
+.dialog-body{
+    padding: 10px;
+    height: auto;
+}

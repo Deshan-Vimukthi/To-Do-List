@@ -1,0 +1,45 @@
+.to-do-list-page-header{
+    height: 100px;
+    background-color: #007bff;
+    z-index: 1000;
+    position: relative;
+    display: flex;
+}
+.to-do-list-page-header>div{
+    flex: 1 1;
+}
+.to-do-list-page-header>button{
+    flex: 0 0;
+    margin: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #222222aa;
+    color: #FFFFFF;
+    border: none;
+    font-size: 20px;
+}
+.to-do-list-page-title{
+    font-size: 36px;
+    font-weight: bolder;
+    color: #FFFFFF;
+    padding-left: 10px;
+}
+.date-tag-container{
+    width: 75%;
+    display: flex;
+    overflow-x: scroll;
+
+    position: absolute;
+    bottom: 10px;
+    left:10px;
+}
+.date-tag{
+    background-color: #222222aa;
+    color: #FFFFFF;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+.to-do-list-holder{
+    border: #222222 solid 1px;
+}
