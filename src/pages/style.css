@@ -1,16 +1,23 @@
 .to-do-list-page-header{
-    height: 100px;
+    min-height: 100px;
+    height: fit-content;
+    background-color: #007bff;
+    padding: 5px 5px 5px 10px;
+}
+.to-do-list-page-header-content{
+    height: fit-content;
     background-color: #007bff;
     z-index: 1000;
     position: relative;
     display: flex;
+    padding: 5px 5px 5px 10px;
 }
-.to-do-list-page-header>div{
+.to-do-list-page-header-content>div{
     flex: 1 1;
 }
-.to-do-list-page-header>button{
+.to-do-list-page-header-content>button{
     flex: 0 0;
-    margin: 30px;
+    height: 50px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: #222222aa;
@@ -23,22 +30,27 @@
     font-weight: bolder;
     color: #FFFFFF;
     padding-left: 10px;
+    min-height: fit-content;
 }
 .date-tag-container{
     width: 75%;
     display: flex;
     overflow-x: scroll;
-
-    position: absolute;
-    bottom: 10px;
-    left:10px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 .date-tag{
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: #222222aa;
     color: #FFFFFF;
     padding: 5px;
     border-radius: 5px;
     font-weight: bolder;
+    max-width: 200px;
 }
 .to-do-list-holder{
     border: #222222 solid 1px;

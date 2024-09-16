@@ -471,7 +471,7 @@ export const DatePicker = ({name,onChangeDate}) => {
         setDate(formattedDate);
         setShowCalendar(false);
         try{
-            onChangeDate(selectedDate);
+            onChangeDate(selectedDate,formattedDate);
         }catch (e) {
 
         }
@@ -499,7 +499,7 @@ export const DatePicker = ({name,onChangeDate}) => {
     );
 };
 
-export const DrawRotator = ({initialIndex,valueList,textLength,startValue,endValue,valueDifference,onIncrease,onDecrease,onTypeValue,initialValue,onChangeValue})=>{
+export const DrawRotator = ({valueList,textLength,startValue,endValue,valueDifference,onIncrease,onDecrease,initialValue,onChangeValue})=>{
     const [selectedIndex,selectIndex]=useState(0);
     const [srcList,setSrcList] = useState([]);
     const [value,setValue] = useState('');
@@ -662,8 +662,9 @@ const DigitalClock = ({value,timeType,timeFormat,OnChangeTime,onCancel})=>{
                 selectedTime.getMilliseconds()
             ));
         }
-    }, [amToggleIndex]);
+    }, [amToggleIndex, selectedTime, timeType]);
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         time = parseTime(value,timeType,timeFormat);
         selectTime(time);
         if(time.getHours()>11 && time.getHours()<24) setAmPm(1);
@@ -687,6 +688,22 @@ const DigitalClock = ({value,timeType,timeFormat,OnChangeTime,onCancel})=>{
                             :''}
                     </div>
                 )
+            case TimeFormat.HOURS_AND_MINUTES_ONLY:
+                return(
+                    <div className='body-container'>
+                        <DrawRotator startValue={timeType===TimeType.HOURS_24?0:1} valueDifference={1} endValue={timeType===TimeType.HOURS_24?23:12}  textLength={2} initialValue={getHours(selectedTime.getHours())} onChangeValue={handleHour}/>
+                        <div> : </div>
+                        <DrawRotator startValue={0} valueDifference={1} endValue={59}  textLength={2} initialValue={selectedTime.getMinutes()} onChangeValue={handleMinute}/>
+                        {timeType===TimeType.HOURS_12?
+                            <div className='toggle-switch'>
+                                <div aria-selected={amToggleIndex===0} onClick={()=>setAmPm(0)}>AM</div>
+                                <div aria-selected={amToggleIndex===1} onClick={()=>setAmPm(1)}>PM</div>
+                            </div>
+                            :''}
+                    </div>
+                )
+            default:
+                break;
         }
         return (
             <div>
@@ -868,8 +885,6 @@ const formatTime = (thisValue,timeType,timeFormat) =>{
                 formattedValue = thisValue.substring(0,digitPoint).padStart(2,'0')+ '.' + String(thisValue.substring(digitPoint,digitPoint+3)).padStart(3,'0');
             }
             return formattedValue;
-        case TimeFormat.DATE_TO_STRING:
-            return thisValue;
         default:
             if(thisValue.trimEnd().endsWith('A')) am_pm=' A';
             if(thisValue.trimEnd().endsWith('P')) am_pm=' P';
@@ -933,6 +948,7 @@ const TimeInputMask = ({name,value,timeType,timeFormat,OnChangeTime})=>{
                 case TimeFormat.SECONDS_AND_MILLISECONDS_ONLY:
                     formattedTime = `${String(time.getSeconds()).padStart(2, '0')} . ${String(time.getMilliseconds()).padStart(3,'0').substring(0,3)}`;
                     break;
+                default:break;
             }
             if (time) {
                 try{
@@ -949,7 +965,7 @@ const TimeInputMask = ({name,value,timeType,timeFormat,OnChangeTime})=>{
     return(
         <input
             type='text'
-            value={inputText}
+            value={inputText.toString()}
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder={`${name} ${timeFormat}`}
@@ -985,7 +1001,7 @@ export const TimePicker = ({is24Hours,name,onChangeTime,isHighlightTitle}) =>{
 
     const handleTimeChange = (selectedDate) => {
         setTimeInDate(selectedDate);
-        let formattedTime = '';
+        let formattedTime;
         if(is24Hours)
             formattedTime = `${selectedDate.getHours()}`.padStart(2,'0') + ' : ' + `${selectedDate.getMinutes()}`.padStart(2,'0') + ' : ' + `${selectedDate.getSeconds()}`.padStart(2,'0');
         else {
@@ -997,7 +1013,7 @@ export const TimePicker = ({is24Hours,name,onChangeTime,isHighlightTitle}) =>{
         setTime(formattedTime);
         setShowClock(false);
         try{
-            onChangeTime(selectedDate);
+            onChangeTime(selectedDate,formattedTime);
         }catch (e) {
 
         }
@@ -1006,9 +1022,6 @@ export const TimePicker = ({is24Hours,name,onChangeTime,isHighlightTitle}) =>{
     const toggleClock = () => {
         setShowClock((prev) => !prev);
     };
-    const handleOnBlur = () =>{
-        setShowClock(false);
-    }
 
     return (
         <div className="input-field" aria-expanded={isHighlightTitle || false} ref={inputRef}>
@@ -1030,7 +1043,7 @@ export const TimePicker = ({is24Hours,name,onChangeTime,isHighlightTitle}) =>{
                     <DigitalClock
                         value={timeInDate}
                         timeType={is24Hours?TimeType.HOURS_24:TimeType.HOURS_12}
-                        timeFormat={TimeFormat.HOURS_AND_MINUTES_SECONDS_ONLY}
+                        timeFormat={TimeFormat.HOURS_AND_MINUTES_ONLY}
                         OnChangeTime={handleTimeChange}/>
                 </div>
             )}

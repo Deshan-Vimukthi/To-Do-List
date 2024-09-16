@@ -10,14 +10,14 @@ const AddToDo = ({onSubmit,onClose}) =>{
     const [endTime,setEndTime] = useState();
     const [date,setDate] = useState(new Date());
 
-    const handleStartTime = (selectedTime)=>{
-        setStartTime(selectedTime);
+    const handleStartTime = (selectedTime,formattedTime)=>{
+        setStartTime(formattedTime);
     }
-    const handleEndTime = (selectedTime)=>{
-        setEndTime(selectedTime);
+    const handleEndTime = (selectedTime,formattedTime)=>{
+        setEndTime(formattedTime);
     }
-    const handleDate = (selectedDate)=>{
-        setDate(selectedDate);
+    const handleDate = (selectedDate,formattedDate)=>{
+        setDate(formattedDate);
     }
 
     return(

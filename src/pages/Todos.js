@@ -25,14 +25,16 @@ const Todos= ()=>{
     return(
         <div>
             <div className='to-do-list-page-header'>
-                <div>
-                    <div className='to-do-list-page-title'> Hey, {(user && user.name)?user.name:'User'}</div>
-                    <div className='date-tag-container'>
-                        <div className='date-tag'>{currentTime.getFullYear()} {months[currentTime.getMonth()]} {`${currentTime.getDate()}`.padStart(2,'0')}</div>`
-                        <div className='date-tag'>{`${currentTime.getHours()}`.padStart(2,'0')} : {`${currentTime.getMinutes()}`.padStart(2,'0')}</div>
+                <div className='to-do-list-page-header-content'>
+                    <div>
+                        <div className='to-do-list-page-title'> Hey, {(user && user.name)?user.name:'User'}</div>
                     </div>
+                    <button onClick={logout}>{icon.logout}</button>
                 </div>
-                <button onClick={logout}>{icon.logout}</button>
+                <div className='date-tag-container'>
+                    <div className='date-tag'>{currentTime.getFullYear()} {months[currentTime.getMonth()]} {`${currentTime.getDate()}`.padStart(2,'0')}</div>`
+                    <div className='date-tag'>{`${currentTime.getHours()}`.padStart(2,'0')} : {`${currentTime.getMinutes()}`.padStart(2,'0')}</div>
+                </div>
             </div>
             <div className='to-do-list-holder'><TodoList/></div>
         </div>

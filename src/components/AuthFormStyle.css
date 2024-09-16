@@ -53,7 +53,6 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 12px;
     font-weight: bolder;
 }
 
@@ -112,4 +111,30 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.password-wrapper {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+}
+.password-wrapper>div {
+    flex: 1 1;
+}
+
+.password-toggle {
+    all: unset;
+    flex: 0 0;
+    top: 0;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+}
+
+
 
