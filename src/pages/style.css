@@ -17,13 +17,22 @@
 }
 .to-do-list-page-header-content>button{
     flex: 0 0;
-    height: 50px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: #222222aa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 5px;
+    background-color: #222222;
     color: #FFFFFF;
     border: none;
-    font-size: 20px;
+    font-size: 16px;
+    opacity: 0.4;
+}
+.to-do-list-page-header-content>button>div:has(i){
+    font-size: 30px;
+}
+.to-do-list-page-header-content>button:hover{
+    opacity: 1;
 }
 .to-do-list-page-title{
     font-size: 36px;

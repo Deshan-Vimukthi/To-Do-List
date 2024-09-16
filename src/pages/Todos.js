@@ -29,7 +29,9 @@ const Todos= ()=>{
                     <div>
                         <div className='to-do-list-page-title'> Hey, {(user && user.name)?user.name:'User'}</div>
                     </div>
-                    <button onClick={logout}>{icon.logout}</button>
+                    <button onClick={logout}>
+                        <div>{icon.logout}</div>
+                        <div>Logout</div></button>
                 </div>
                 <div className='date-tag-container'>
                     <div className='date-tag'>{currentTime.getFullYear()} {months[currentTime.getMonth()]} {`${currentTime.getDate()}`.padStart(2,'0')}</div>`
