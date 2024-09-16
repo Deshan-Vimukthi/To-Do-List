@@ -89,12 +89,12 @@
     background: #FFFFFF;
 }
 .input-container[aria-invalid=true]{
-    border: var(--alert_color) 2px solid;
+    border: red 2px solid;
     border-radius: 5px;
     padding: 5px;
 }
 .input-container[aria-invalid=true]>button{
-    color: var(--alert_color);
+    color: red;
 }
 .input-container input:focus{
     height: 100%;
@@ -119,7 +119,7 @@
     opacity: 1;
 }
 .input-container[aria-invalid=true] input + div{
-    color: var(--alert_color);
+    color: red;
 }
 .suggest-list{
     background: #FFFFFF;
@@ -139,7 +139,7 @@
     text-align: left;
 }
 .suggest-list-item:hover{
-    background: var(--primary_color);
+    background: #007bff;
     font-weight: bolder;
     padding: 10px;
     border-width: 1px;
@@ -165,8 +165,8 @@
     justify-content: center;
     gap: 5px;
     font-weight: bolder;
-    background: var(--background_color);
-    color: var(--text-color);
+    background: #FFFFFF;
+    color: #000000;
     border-radius: 5px;
     padding: 5px;
     border: transparent solid 2px;
@@ -175,16 +175,16 @@
     opacity: 0.5;
 }
 .text-button:hover{
-    border: solid var(--text-color) 2px;
+    border: solid #000000 2px;
 }
 .text-button[aria-selected=true]{
-    color:  rgb(187, 134, 252);
-    background: var(--background_color);
+    color:  #007bff;
+    background: #FFFFFF;
 }
 .text-button[aria-selected=true]:hover{
-    border:  rgb(187, 134, 252) solid 2px;
-    color: var(--text-color);
-    background:  rgb(187, 134, 252);
+    border:  #007bff solid 2px;
+    color: #000000;
+    background:  #007bff;
 }
 
 .calendar-header div{
@@ -238,7 +238,7 @@
 }
 .year[aria-selected=true],.month[aria-selected=true]{
     opacity: 0.8;
-    border: 2px solid rgb(187, 134, 252);
+    border: 2px solid #007bff;
 }
 .months{
     display: grid;
@@ -342,12 +342,12 @@ button.date:hover{
     text-align: center;
     padding: 5px;
     border-radius: 5px;
-    border: 2px solid rgb(187, 134, 252);
+    border: 2px solid #007bff;
 }
 
 .date:focus, .date:active,.today:focus, .today:active {
     border: 2px solid black; /* Border thickness when focused or active */
-    background-color: rgba(233, 150, 122, 0.53);
+    background-color: rgb(187, 134, 252);
     color: #000000;
 }
 .no-task{
@@ -401,7 +401,7 @@ button.date:hover{
     opacity: 0.5;
 }
 .value-rotator>button:active{
-    background: rgb(187, 134, 252);
+    background: #007bff;
     opacity: 1;
 }
 
@@ -418,7 +418,7 @@ button.date:hover{
     padding: 2px;
 }
 .toggle-switch:hover{
-    background: rgb(187, 134, 252);
+    background: #007bff;
 }
 .toggle-switch>div{
     padding: 3px;
@@ -435,7 +435,7 @@ button.date:hover{
 }
 .toggle-switch>div[aria-selected=true]{
     border-radius: 3px;
-    background: rgb(187, 134, 252);
+    background: #007bff;
     font-weight: bolder;
     color: #FFFFFF;
 }

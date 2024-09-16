@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     const { user } = useAuth();
     return user ? <Component {...rest} /> : <Navigate to="/login" />;
 };
-
+// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> for Awesome font 4
 function App() {
     return (
         <Router>
@@ -17,9 +17,8 @@ function App() {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
                 <Routes>
                     <Route path="/" element={<PrivateRoute component={Todos} />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/todos" element={<PrivateRoute component={Todos} />} />
+                    <Route path="/login" element={<Login />}/>
+                    <Route path="/register" element={<Register />}/>
                 </Routes>
             </AuthProvider>
         </Router>

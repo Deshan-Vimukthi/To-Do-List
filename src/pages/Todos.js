@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from "react";
-import Todo from "../components/Todo";
 import icon from "../icon";
 import './style.css'
-import AddToDo from "../components/AddToDoForm/AddToDo";
 import {useAuth} from "../contexts/AuthContext";
 import TodoList from "../components/TodoList";
 import {months} from "../components/inputField/inputField";
-import login from "./Login";
 
 
 const Todos= ()=>{
